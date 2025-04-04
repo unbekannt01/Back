@@ -24,7 +24,10 @@ export class AdminService {
   }
 
   async findAll(): Promise<User[]> {
-    return this.userRepository.find();
+    return this.userRepository.find({
+      take: 10, // Fetch only 10 records at a time
+      skip: 0,  // Start from the first record
+    });
   }
 
   async getUserRole(email: string): Promise<{ role: string }> {
