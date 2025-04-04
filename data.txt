@@ -1,0 +1,22 @@
+{
+  "first_name": "Prit",
+  "last_name": "Mokariya",
+  "email": "mokariyaprit1123+2@gmail.com",
+  "password": "prit",
+  "mobile_no": "9328484772"
+}
+
+SELECT COALESCE(t1.striker, t2.striker) as striker,
+       (COALESCE(t1.total_runs, 0) + COALESCE(t2.total_runs, 0)) as total_runs
+FROM (
+    SELECT striker, SUM(runs_of_batsman) as total_runs
+    FROM my_table1
+    GROUP BY striker
+) t1
+FULL OUTER JOIN (
+    SELECT striker, SUM(runs_of_batsman) as total_runs
+    FROM my_table2
+    GROUP BY striker
+) t2 ON t1.striker = t2.striker
+ORDER BY total_runs DESC;
+
