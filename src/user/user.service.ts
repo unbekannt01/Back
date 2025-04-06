@@ -399,7 +399,6 @@ export class UserService {
     return new Date(Date.now() + 5 * 60 * 1000); // 5 minutes expiration
   }
 
-
   async findAll(): Promise<User[]> {
     return this.userRepository.find({
       take: 10, // Fetch only 10 records at a time
