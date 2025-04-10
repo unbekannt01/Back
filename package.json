@@ -8,7 +8,7 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "node --max-old-space-size=2048 node_modules/.bin/nest start",
+    "start": "node --max-old-space-size=2048 node_modules/bin/nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "npm run build && npm run start",
@@ -89,4 +89,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
+  
 }
