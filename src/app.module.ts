@@ -19,6 +19,9 @@ import { SmsService } from './sms/sms.service';
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
       entities: [User],
+      ssl: {
+        rejectUnauthorized: false, // <--- this is the key
+      },
       synchronize: true,
     }),
     UserModule,
